@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js test</title>
+    <link id="linkbg1" rel="stylesheet" type="text/css" href="css1.css" />
+    <style type="text/css">
+    #div1{
+        width: 85px;
+        height: 25px;
+        background:#FBF;
+        padding: 10px;
+        display: none; /*讓它一開始隱藏*/
+    }
+    #div2{
+        width: 200px;
+        height: 200px;
+        background:red;
+    }
+    #div3{
+        width: 50px;
+        height: 50px;
+        background: #fCf;
+        display: none;
+    }
+    #div4{
+        width: 100px;
+        height: 100px;
+        border: 5px solid #FBA;
+    }
+    .cls{
+        background: #FBA;
+    }
+    #div5{
+        width: 200px;
+        height: 200px;
+        background: #FAF;
+    }
+    #div6{
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+</style>
+<script type="text/javascript">
+     function div1onmouseover(){
+         var div1over= document.getElementById("div1")
+         div1over.style.display="block";
+     }
+     function div1onmouseout(){
+        var div1out= document.getElementById("div1")
+        div1out.style.display="none";
+     }
+     function div2onmouseover(){
+        var div2over= document.getElementById("div2")
+        div2over.style.background="green";
+        div2over.style.width="400px";
+        div2over.style.height="400px";
+     }
+     function div2onmouseout(){
+        var div2out= document.getElementById('div2')
+        div2out.style.background="red";
+        div2out.style.width="200px";
+        div2out.style.height="200px";
+     }
+     function bg1css(){
+        var bg1=document.getElementById("linkbg1");
+        bg1.href="css1.css";
+     }
+     function bg2css(){
+        var bg2=document.getElementById("linkbg1");
+        bg2.href="css2.css";
+     }
+     function settext(){
+        var settext=document.getElementById("inputtext")
+        settext.value="HI:)"
+     }
+     function showhide(){
+        var showhidediv=document.getElementById("div3");
+        if(showhidediv.style.display=="block"){
+             showhidediv.style.display="none";
+        }else{
+             showhidediv.style.display="block";
+        }
+     }
+     function coloring(){
+        var fillpink=document.getElementById("div4")
+        fillpink.className="cls";
+     }
+     function setcolor(num){
+        var colors=document.getElementById("div5");
+        colors.style.background=num;
+     }
+     function setdiv(a,b){
+        var setdiv=document.getElementById("div6")
+        setdiv.style[a]=b;
+     }
+     window.onload=function(){
+        var fourdiv=document.getElementsByTagName("div");
+        //alert(fourdiv.length);
+        for(var i=6;i<8;i++){
+            fourdiv[i].style.background="red";
+        }
+     }
+     window.onload=function(){
+        var btnon1=document.getElementById("btn1");
+        var btnon2=document.getElementById("btn2");
+        var btnon3=document.getElementById("btn3");
+        var divon=document.getElementById("div7");
+        var chk=divon.getElementsByTagName("input");
+        btnon1.onclick=function (){
+            for (var t=0;t<chk.length;t++){
+                chk[t].checked=true;
+            }
+        }
+        btnon2.onclick=function (){
+            for (var t=0;t<chk.length;t++){
+                chk[t].checked=false;
+            }
+        }
+        btnon3.onclick=function (){
+            for (var a=0;a<chk.length;a++){
+                if(chk[a].checked==true){
+                    chk[a].checked=false;
+                }else{
+                    chk[a].checked=true;
+                }
+            }
+        }
+     }
+</script>
+</head>
+<body>
+	<input type="checkbox" onmouseover="div1onmouseover()" onmouseout="div1onmouseout()">
+	提示框顯示
+    <div id="div1">這是提示框</div>
+    <br>
+    <div id="div2" onmouseover="div2onmouseover()" onmouseout="div2onmouseout()"></div>
+    <input type="button" onclick="bg1css()" value="背景黃">
+    <input type="button" onclick="bg2css()" value="背景蘋果綠">
+    <br>
+    <input type="text" id="inputtext" value="你好">
+    <input type="button" id="inputbutton" value="改變文字" onclick="settext()">
+    <br>
+    <input type="button" value="顯示隱藏" onclick="showhide()">
+    <div id="div3"></div>
+    <br>
+    <a href="javascript:alert('彈出訊息視窗');">彈出訊息視窗</a>
+    <br>
+    <input type="button" value="填滿顏色" onclick="coloring()">
+    <div id="div4"></div>
+    <br>
+    <input type="button" value="紅" onclick="setcolor('red')">
+    <input type="button" value="綠" onclick="setcolor('green')">
+    <input type="button" value="藍" onclick="setcolor('blue')">
+    <div id="div5"></div>
+    <br>
+    <input type="button" value="變高" onclick="setdiv('height','200px')">
+    <input type="button" value="變寬" onclick="setdiv('width','200px')">
+    <input type="button" value="變藍" onclick="setdiv('background','blue')">
+    <div id="div6"></div>
+    <br>
+    <div style="height: 50px;width: 50px;border: 2px solid red;margin-right: 5px;float: left;"></div>
+    <div style="height: 50px;width: 50px;border: 2px solid red;margin-right: 5px;float: left;"></div>
+    <br>
+    <br>
+    <br>
+    <div id="div7">
+         <input type="button" value="全選" id="btn1">
+         <input type="button" value="全選取消" id="btn2">
+         <input type="button" value="反選" id="btn3">
+         <br>
+         <input type="checkbox"><br>
+         <input type="checkbox"><br>
+         <input type="checkbox"><br>
+         <input type="checkbox"><br>
+         <input type="checkbox">
+    </div>
+    <br>
+    <a href="webrtc_test1.html">webRTC 練習1</a>
+    <a href="webrtc_test2.html">webRTC 練習2</a>
+    <a href="webrtc_test3.html">webRTC 截圖</a>
+    <a href="js_test1.html">JS練習1</a>
+</body>
+</html>
